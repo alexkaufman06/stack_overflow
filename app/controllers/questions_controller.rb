@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    if @question.update(params[:question])
+    if @question.update(question_params)
       flash[:success] = "Question Successfully Updated!"
       redirect_to questions_path
     else
