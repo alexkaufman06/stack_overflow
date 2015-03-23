@@ -19,10 +19,6 @@
         <hr>
         <%= response.date %> <br>
         <%= response.response %>
-        <%= link_to "Edit", edit_question_response_path(@question, response), class: 'btn btn-primary btn-xs' %>
-        <%= link_to "Delete", question_response_path(@question, response), class: 'btn btn-danger btn-xs',
-                                data: {confirm: "Are you sure you want to delete?",
-                                        method: "delete"} %>
         <hr>
       </li>
     <% end %>

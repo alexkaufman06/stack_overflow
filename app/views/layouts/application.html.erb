@@ -17,7 +17,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><%= link_to current_user.email, root_path %></li>
+          <li><%= link_to current_user.email, user_path(current_user) %></li>
           <li><%= link_to "Logout", session_path(current_user), data: {method: "delete"} %></li>
         <% else %>
           <li><%= link_to "Login", new_session_path %></li>
