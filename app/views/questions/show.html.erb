@@ -1,7 +1,14 @@
+<% content_for(:title, "Stack Overflow | Question") %>
+
 <h1><%= @question.title %></h1>
 
 <h4><%= @question.date %></h4>
 
 <p><%= @question.question %></p>
+
+<p><%= link_to "Edit", edit_question_path(@question) %></p>
+<p><%= link_to "Delete", question_path(@question),
+                         data: {confirm: "You sure you want to delete?",
+                                method: "delete"} %></p>
 
 <%= link_to "Return to Questions", questions_path %>
