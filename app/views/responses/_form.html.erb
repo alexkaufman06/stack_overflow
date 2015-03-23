@@ -1,0 +1,9 @@
+<%= render('layouts/errors', object: @response) %>
+
+<%= form_for [@question, @response] do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date, class: 'form-control', required: true, autofocus: true %>
+  <%= f.label :response %>
+  <%= f.text_area :response, class: 'form-control', size: "30x6", required: true %>
+  <p><%= f.submit class: 'btn btn-success' %></p>
+<% end %>

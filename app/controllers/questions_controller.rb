@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(params[:question])
+    @question = Question.new(question_params)
     if @question.save
       flash[:success] = "Question Successfully Added!"
       redirect_to questions_path
@@ -42,5 +42,10 @@ class QuestionsController < ApplicationController
     @question.destroy
     flash[:danger] = "Post Successfully Deleted!"
     redirect_to questions_path
+  end
+
+private
+  def question_params
+    params.require(:question).permit(:title, :date, :question)
   end
 end
