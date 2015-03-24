@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @question = Question.new
   end
 
