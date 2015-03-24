@@ -4,9 +4,10 @@
 
 <% if current_user == @user %>
   <p><%= link_to "Add Question", new_user_question_path(current_user) %></p>
+  <hr><hr>
 <% end %>
 <% @user.questions.each do |question| %>
-  <li><%= link_to question.title, question_path(question) %></li>
+  <li><%= link_to question.title, question_path(question) %> <br> Votes: <%= question.number_of_votes %></li>
   <% if current_user == @user %>
     <%= link_to "Edit", edit_question_path(question), class: 'btn btn-primary btn-xs' %>
     <%= link_to "Delete", question_path(question), class: 'btn btn-danger btn-xs',
