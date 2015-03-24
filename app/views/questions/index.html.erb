@@ -6,10 +6,7 @@
   <% @questions.each do |question| %>
     <li><%= link_to question.title, question_path(question) %> Votes: <%= question.number_of_votes %></li>
     <% if current_user %>
-      <!-- <%= form_for question do |f| %>
-        <%= f.submit "Up Vote", class: 'btn btn-success btn-xs' %>
-      <% end %> -->
       <%= button_to "Up Vote", question_votes_path(question), class: 'btn btn-success btn-xs' %>
-    <!-- <% end %> -->
+    <% end %>
   <% end %>
 </ul>
