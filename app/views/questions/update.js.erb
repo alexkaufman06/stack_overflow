@@ -1,3 +1,4 @@
 $('.edit_question').remove();
-$('#edit_link').show();
+$('.question_<%= @question.id %>').remove();
 $('#questions').prepend('<%= j render(@question) %>');
+document.location.reload(true);
