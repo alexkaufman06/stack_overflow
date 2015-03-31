@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  respond_to :html, :js
 
   def index
     @questions = Question.all.reverse
@@ -47,10 +48,16 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(current_user.id)
     @question = Question.find(params[:id])
     @question.destroy
-    flash[:danger] = "Question Successfully Deleted!"
-    redirect_to questions_path
+    respond_to do |format|
+      format.html do
+        flash[:danger] = "Question Successfully Deleted!"
+        redirect_to user_path(@user)
+      end
+      format.js
+    end
   end
 
 private
