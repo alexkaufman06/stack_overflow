@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
+
   def index
-    @questions = Question.all
+    @questions = Question.all.reverse
     @votes = Vote.all
   end
 
@@ -17,8 +18,13 @@ class QuestionsController < ApplicationController
     @user = User.find(params[:user_id])
     @question = @user.questions.new(question_params)
     if @question.save
-      flash[:success] = "Question Successfully Added!"
-      redirect_to questions_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = "Question Successfully Added!"
+          redirect_to questions_path
+        end
+        format.js
+      end
     else
       flash[:danger] = "There was a problem creating your question, please try again."
       render :new

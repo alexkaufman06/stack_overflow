@@ -11,6 +11,7 @@ gem 'bcrypt', '~> 3.1.5', require: "bcrypt"
 gem 'pry'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'factory_girl_rails'
+gem 'responders', '~> 2.0'
 
 group :development do
   gem 'byebug'

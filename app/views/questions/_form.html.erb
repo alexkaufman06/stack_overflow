@@ -1,6 +1,6 @@
 <%= render "layouts/errors", object: @question %>
 
-<%= form_for [@user, @question] do |f| %>
+<%= form_for [@user, @question], remote: true do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, class: 'form-control', required: true, autofocus: true %>
   <%= f.label :date %>

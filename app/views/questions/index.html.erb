@@ -4,9 +4,11 @@
 
 <ul>
   <% @questions.each do |question| %>
-    <li><%= link_to question.title, question_path(question) %> Votes: <%= question.number_of_votes %></li>
-    <% if current_user %>
-      <%= button_to "Up Vote", question_votes_path(question), class: 'btn btn-success btn-xs' %>
-    <% end %>
+    <div class="well">
+      <li><%= link_to question.title, question_path(question) %> Votes: <%= question.number_of_votes %></li>
+      <% if current_user %>
+        <%= button_to "Up Vote", question_votes_path(question), class: 'btn btn-success btn-xs' %>
+      <% end %>
+    </div>
   <% end %>
 </ul>
