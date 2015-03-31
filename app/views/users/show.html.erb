@@ -6,10 +6,10 @@
   <p><%= link_to "Add Question", new_user_question_path(current_user), id: "new_link", remote: true %></p>
   <hr><hr>
 <% end %>
-<% if @user.questions.any? %>
-  <div id="questions">
+<div id="questions">
+  <% if @user.questions.any? %>
     <%= render @user.questions %>
-  </div>
-<% else %>
-  <p>There are no questions!</p>
-<% end %>
+  <% else %>
+    <p>There are no questions!</p>
+  <% end %>
+</div>
